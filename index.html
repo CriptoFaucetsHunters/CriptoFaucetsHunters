@@ -4,32 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CriptoFaucetsHunters</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    h1 {
-      color: #007BFF;
-    }
-    nav a {
-      margin-right: 15px;
-      text-decoration: none;
-      color: #007BFF;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"> <!-- Enlaza el CSS común -->
 </head>
 <body>
-  <h1>¡Bienvenido a CriptoFaucetsHunters! 🚀</h1>
-  <p>¿Quieres aprender a sacarle provecho a los faucets y otras plataformas de criptomonedas? ¡Estás en el lugar correcto!</p>
 
-  <nav>
-    <a href="tutoriales.html">📚 Tutoriales</a>
-    <a href="reviews.html">📊 Reviews</a>
-  </nav>
+  <!-- Icono de menú hamburguesa -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menú lateral -->
+  <div class="menu" id="menu">
+    <ul>
+      <li><a href="index.html">🏠 Inicio</a></li>
+      <li><a href="tutoriales.html">📚 Tutoriales</a></li>
+      <li><a href="reviews.html">📊 Reviews</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div style="padding: 60px;">
+    <h1>Bienvenido a CriptoFaucetsHunters 🚀</h1>
+    <p>Este es el contenido principal de tu sitio.</p>
+  </div>
+
+  <!-- Script para activar/desactivar el menú -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+
 </body>
 </html>
