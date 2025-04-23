@@ -2,14 +2,16 @@
 body {
   background-color: #f9f9f9; /* Fondo claro */
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 0; /* Eliminar márgenes predeterminados */
+  padding: 0; /* Eliminar padding predeterminado */
   color: #333;
 }
 
 /* Contenedor principal */
 .container {
   position: relative;
+  margin: 0; /* Asegurar que no haya márgenes adicionales */
+  padding: 0; /* Asegurar que no haya padding adicional */
 }
 
 /* Imagen destacada */
@@ -17,6 +19,8 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  margin: 0; /* Eliminar márgenes predeterminados */
+  padding: 0; /* Eliminar padding predeterminado */
 }
 
 /* Título centrado sobre la imagen */
@@ -34,53 +38,56 @@ body {
 
 /* Menú hamburguesa */
 .menu-icon {
-  position: relative; /* Contenedor relativo para posicionar las líneas */
-  width: 35px;
-  height: 30px;
+  position: absolute;
+  top: 15px; /* Ajuste para que esté cerca del borde superior */
+  left: 15px;
+  z-index: 1000;
   cursor: pointer;
+  margin: 0; /* Eliminar márgenes predeterminados */
+  padding: 0; /* Eliminar padding predeterminado */
 }
 
 .menu-icon span {
-  position: absolute; /* Posición absoluta para cada línea */
+  position: absolute;
   left: 0;
   right: 0;
   height: 3px;
-  background-color: white; /* Color inicial: blanco */
+  background-color: white;
   transition: all 0.3s ease;
   transform-origin: center;
 }
 
 /* Posicionamiento inicial */
 .menu-icon span:nth-child(1) {
-  top: 0; /* Línea superior */
+  top: 0;
 }
 
 .menu-icon span:nth-child(2) {
-  top: 50%; /* Línea del medio */
+  top: 50%;
   transform: translateY(-50%);
 }
 
 .menu-icon span:nth-child(3) {
-  bottom: 0; /* Línea inferior */
+  bottom: 0;
 }
 
 /* Animación para la "X" */
 .menu-icon.active span:nth-child(1),
 .menu-icon.active span:nth-child(3) {
-  top: 50%; /* Reposiciona ambas líneas al centro */
+  top: 50%;
 }
 
 .menu-icon.active span:nth-child(1) {
-  transform: translateY(-50%) rotate(45deg); /* Rotación de la línea superior */
+  transform: translateY(-50%) rotate(45deg);
   background-color: black;
 }
 
 .menu-icon.active span:nth-child(2) {
-  opacity: 0; /* Desaparece la línea del medio */
+  opacity: 0;
 }
 
 .menu-icon.active span:nth-child(3) {
-  transform: translateY(-50%) rotate(-45deg); /* Rotación de la línea inferior */
+  transform: translateY(-50%) rotate(-45deg);
   background-color: black;
 }
 
