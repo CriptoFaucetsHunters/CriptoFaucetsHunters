@@ -74,4 +74,37 @@ body {
   height: 100%;
   background-color: #fff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.menu.active {
+  left: 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 60px 0 0;
+  margin: 0;
+}
+
+.menu ul li {
+  margin-bottom: 15px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #007BFF;
+  font-size: 18px;
+  padding: 10px 20px;
+  display: block;
+}
+
+.menu ul li a:hover {
+  background-color: #f0f8ff;
+}
+
+/* Contenido principal */
+.main-content {
+  padding: 60px;
+}
