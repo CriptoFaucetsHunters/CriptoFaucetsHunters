@@ -4,63 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cripto Faucets Hunters</title>
-  <link rel="stylesheet" href="style.css"> <!-- Enlaza el CSS común -->
+  <!-- Enlazar archivos CSS -->
+  <link rel="stylesheet" href="reset.css"> <!-- Reset de estilos -->
+  <link rel="stylesheet" href="variables.css"> <!-- Variables globales -->
+  <link rel="stylesheet" href="style.css"> <!-- Estilos principales -->
+  <link rel="stylesheet" href="animations.css"> <!-- Animaciones -->
+  <link rel="stylesheet" href="responsive.css"> <!-- Estilos responsivos -->
+  <link rel="stylesheet" href="utils.css"> <!-- Clases utilitarias -->
 </head>
 <body>
+  <!-- Contenedor principal -->
+  <div class="container">
+    <!-- Icono de menú hamburguesa -->
+    <div class="menu-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-  <!-- Contenedor de la imagen destacada -->
-  <div style="position: relative;">
-    <!-- Título centrado sobre la imagen -->
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; font-size: 2rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
-      Cripto Faucets Hunters
+    <!-- Menú lateral -->
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li><a href="tutoriales.html">📚 Tutoriales</a></li>
+        <li><a href="reviews.html">📊 Reviews</a></li>
+      </ul>
     </div>
 
     <!-- Imagen destacada -->
-    <img src="assets/images/IMG_2913.jpeg" alt="Portada de Cripto Faucets Hunters" style="width: 100%; height: auto; margin: 0;">
+    <img src="assets/images/IMG_2913.jpeg" alt="Portada de Cripto Faucets Hunters" class="featured-image">
 
-    <!-- Icono de menú hamburguesa -->
-    <div class="menu-icon" onclick="toggleMenu()" style="position: absolute; top: 15px; left: 15px; z-index: 1000;">
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- Título centrado sobre la imagen -->
+    <div class="centered-title">
+      Cripto Faucets Hunters
     </div>
   </div>
 
-  <!-- Menú lateral -->
-  <div class="menu" id="menu">
-    <ul>
-      <li><a href="index.html">🏠 Inicio</a></li>
-      <li><a href="tutoriales.html">📚 Tutoriales</a></li>
-      <li><a href="reviews.html">📊 Reviews</a></li>
-    </ul>
-  </div>
-
   <!-- Contenido principal -->
-  <div style="padding: 60px;">
+  <div class="main-content">
     <p>Este es el contenido principal de tu sitio.</p>
   </div>
 
-  <!-- Script para activar/desactivar el menú -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      const menuIcon = document.querySelector('.menu-icon');
-      menu.classList.toggle('active');
-      menuIcon.classList.toggle('active'); // Agrega/quita la clase 'active'
-    }
-
-    // Cerrar el menú al hacer clic fuera de él
-    document.addEventListener('click', function(event) {
-      const menu = document.getElementById('menu');
-      const menuIcon = document.querySelector('.menu-icon');
-
-      // Si el clic no es en el ícono ni en el menú, cierra el menú
-      if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
-        menu.classList.remove('active');
-        menuIcon.classList.remove('active');
-      }
-    });
-  </script>
-
+  <!-- Enlazar archivo JavaScript -->
+  <script src="scripts.js"></script>
 </body>
 </html>
