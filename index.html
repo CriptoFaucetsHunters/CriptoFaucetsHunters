@@ -8,11 +8,17 @@
 </head>
 <body>
 
-  <!-- Icono de menú hamburguesa -->
-  <div class="menu-icon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+  <!-- Contenedor de la imagen destacada -->
+  <div style="position: relative;">
+    <!-- Imagen destacada -->
+    <img src="assets/images/IMG_2913.jpeg" alt="" style="width: 100%; height: auto; margin: 0;">
+
+    <!-- Icono de menú hamburguesa -->
+    <div class="menu-icon" onclick="toggleMenu()" style="position: absolute; top: 15px; left: 15px; z-index: 1000;">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 
   <!-- Menú lateral -->
@@ -28,10 +34,8 @@
   <div style="padding: 60px;">
     <h1>Bienvenido a CriptoFaucetsHunters 🚀</h1>
     <p>Este es el contenido principal de tu sitio.</p>
-   <!-- Imagen destacada -->
-  <img src="assets/images/IMG_2913.jpeg" alt="" style="max-width: 100%; height: auto; margin-top: 20px;">
-</div>
-  
+  </div>
+
   <!-- Script para activar/desactivar el menú -->
   <script>
     function toggleMenu() {
