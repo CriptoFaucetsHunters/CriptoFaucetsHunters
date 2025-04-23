@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CriptoFaucetsHunters</title>
   <link rel="stylesheet" href="style.css"> <!-- Enlaza el CSS común -->
+  <style>
+    /* Estilo del menú hamburguesa */
+    .menu-icon span {
+      background-color: white; /* Color blanco para las rayas */
+    }
+
+    .menu-icon.active span {
+      transform: rotate(90deg); /* Animación de rotación */
+      transition: transform 0.3s ease;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Contenedor de la imagen destacada -->
   <div style="position: relative;">
     <!-- Imagen destacada -->
-    <img src="assets/images/IMG_2913.jpeg" alt="" style="width: 100%; height: auto; margin: 0;">
+    <img src="assets/images/imagen-destacada.jpg" alt="Portada de CriptoFaucetsHunters" style="width: 100%; height: auto; margin: 0;">
 
     <!-- Icono de menú hamburguesa -->
     <div class="menu-icon" onclick="toggleMenu()" style="position: absolute; top: 15px; left: 15px; z-index: 1000;">
@@ -40,8 +51,22 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
+      const menuIcon = document.querySelector('.menu-icon');
       menu.classList.toggle('active');
+      menuIcon.classList.toggle('active'); // Agrega/quita la clase 'active'
     }
+
+    // Cerrar el menú al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('menu');
+      const menuIcon = document.querySelector('.menu-icon');
+
+      // Si el clic no es en el ícono ni en el menú, cierra el menú
+      if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+        menu.classList.remove('active');
+        menuIcon.classList.remove('active');
+      }
+    });
   </script>
 
 </body>
