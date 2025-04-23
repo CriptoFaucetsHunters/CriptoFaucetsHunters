@@ -7,45 +7,63 @@ body {
   color: #333;
 }
 
-/* Estilo del menú hamburguesa */
+/* Contenedor del botón hamburguesa */
 .menu-icon {
-  display: block;
-  width: 30px;
-  height: 20px;
+  position: relative;
+  width: 35px;
+  height: 30px;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 1000;
+  padding: 0;
 }
 
+/* Estilos base para cada línea */
 .menu-icon span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: white; /* Color blanco inicial */
-  margin-bottom: 5px;
-  border-radius: 2px;
-  transition: all 0.3s ease; /* Transición suave */
-  transform-origin: center; /* Punto de rotación central */
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: white; /* Color inicial: blanco */
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
 }
 
-/* Animación para convertir las rayas en una "X" */
-.menu-icon.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px); /* Raya superior */
+/* Posicionamiento inicial */
+.menu-icon span:nth-child(1) {
+  top: 0;
 }
 
-.menu-icon.active span:nth-child(2) {
-  opacity: 0; /* Raya del medio desaparece */
+.menu-icon span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+.menu-icon span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Estado activo: las líneas superior e inferior se reposicionan al centro y se rotan */
+.menu-icon.active span:nth-child(1),
 .menu-icon.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px); /* Raya inferior */
+  top: 50%; /* Reposiciona al centro */
 }
 
-/* Cambiar el color de las rayas a negro cuando el menú está activo */
-.menu-icon.active span {
-  background-color: black; /* Cambia a negro para contraste */
+/* Animación en la línea superior: se centra, rota 45° y cambia a negro */
+.menu-icon.active span:nth-child(1) {
+  transform: translateY(-50%) rotate(45deg);
+  background-color: black;
+}
+
+/* Animación en la línea inferior: se centra, rota -45° y cambia a negro */
+.menu-icon.active span:nth-child(3) {
+  transform: translateY(-50%) rotate(-45deg);
+  background-color: black;
+}
+
+/* La línea del medio se desvanece */
+.menu-icon.active span:nth-child(2) {
+  opacity: 0;
 }
 
 /* Menú lateral */
