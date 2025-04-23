@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reviews - CriptoFaucetsHunters</title>
-<link rel="stylesheet" href="style.css"> <!-- Enlaza el CSS común -->
+  <title>Reviews - Cripto Faucets Hunters</title>
+  <link rel="stylesheet" href="style.css"> <!-- Enlaza el CSS común -->
 </head>
-<body>
+<body style="background-color: #f9f9f9;"> <!-- Fondo claro añadido -->
+
+  <!-- Contenedor principal -->
+  <div style="position: relative;">
     <!-- Icono de menú hamburguesa -->
-  <div class="menu-icon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+    <div class="menu-icon" onclick="toggleMenu()" style="position: absolute; top: 15px; left: 15px; z-index: 1000;">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 
   <!-- Menú lateral -->
@@ -25,25 +29,37 @@
 
   <!-- Contenido principal -->
   <div style="padding: 60px;">
-  <h1>📊 Reviews</h1>
-  <p>Descubre análisis detallados de plataformas como faucets, PTCs y más.</p>
+    <h1>📊 Reviews</h1>
+    <p>Descubre análisis detallados de plataformas como faucets, PTCs y más.</p>
 
-  <ul>
-    <li><a href="review-faucet-ejemplo.html">📊 Review de Faucet XYZ</a></li>
-    <li><a href="review-ptc-ejemplo.html">📊 Review de PTC ABC</a></li>
-    <!-- Añade más reviews aquí -->
-  </ul>
+    <ul>
+      <li><a href="review-faucet-ejemplo.html">📊 Review de Faucet XYZ</a></li>
+      <li><a href="review-ptc-ejemplo.html">📊 Review de PTC ABC</a></li>
+      <!-- Añade más reviews aquí -->
+    </ul>
+    <a href="index.html">← Volver al inicio</a>
+  </div>
 
-  <a href="index.html">← Volver al inicio</a>
-
-    
   <!-- Script para activar/desactivar el menú -->
   <script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
+      const menuIcon = document.querySelector('.menu-icon');
       menu.classList.toggle('active');
+      menuIcon.classList.toggle('active'); // Agrega/quita la clase 'active'
     }
+
+    // Cerrar el menú al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('menu');
+      const menuIcon = document.querySelector('.menu-icon');
+
+      // Si el clic no es en el ícono ni en el menú, cierra el menú
+      if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+        menu.classList.remove('active');
+        menuIcon.classList.remove('active');
+      }
+    });
   </script>
-    
 </body>
 </html>
