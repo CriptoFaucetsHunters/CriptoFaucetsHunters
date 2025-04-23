@@ -27,6 +27,7 @@ body {
   margin-bottom: 5px;
   border-radius: 2px;
   transition: all 0.3s ease; /* Transición suave */
+  transform-origin: center; /* Punto de rotación central */
 }
 
 /* Animación para convertir las rayas en una "X" */
