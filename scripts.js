@@ -17,3 +17,19 @@ document.addEventListener('click', function(event) {
     menuIcon.classList.remove('active');
   }
 });
+
+// Detectar el scroll y aplicar un ligero vaivén
+let header = document.querySelector('header');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollTop > lastScrollTop) {
+    // Scroll hacia abajo
+    header.style.transform = 'translateY(2px)'; // Reducimos el movimiento hacia abajo
+  } else {
+    // Scroll hacia arriba
+    header.style.transform = 'translateY(0)';
+  }
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
