@@ -4,43 +4,85 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
+  scroll-behavior: smooth; /* Hace que el scroll sea suave */
 }
 
-/* Menú hamburguesa */
+/* Estilo para la imagen destacada */
+.featured-image {
+  position: relative; /* Permite posicionarla correctamente */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 250px; /* Altura de la imagen destacada */
+  background-image: url('assets/images/IMG_2913.jpeg'); /* Ruta de la imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  z-index: 1; /* Asegura que quede detrás de la barra */
+  margin-top: -40px; /* Desplaza la imagen hacia arriba para que quede parcialmente oculta por la barra */
+}
+
+/* Encabezado fijo */
+header {
+  position: sticky;
+  top: 0; /* Asegura que el encabezado quede fijo en la parte superior */
+  background-color: white; /* Fondo blanco para el encabezado */
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para resaltar el encabezado */
+  z-index: 3000; /* Asegura que el encabezado esté por encima del menú lateral */
+  transition: transform 0.2s ease; /* Agregamos transición para el efecto suave */
+}
+
 .menu-icon {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 2000;
+  position: relative;
+  width: 26px; /* Ancho fijo para el contenedor del ícono */
+  height: 22px; /* Altura reducida del contenedor */
   cursor: pointer;
-  width: 35px; /* Ancho fijo para el contenedor del ícono */
-  height: 32px; /* Altura fija para el contenedor del ícono */
+  margin-right: 25px; /* Espacio adicional entre el botón y el título */
 }
 
 .menu-icon span {
-  display: block;
-  width: 100%; /* Líneas ocupan todo el ancho del contenedor */
-  height: 4px; /* Grosor de las líneas */
-  margin: 6px auto; /* Margen uniforme entre las líneas */
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3px; /* Grosor reducido para las líneas (entre 1px y 2px) */
   background-color: black; /* Color inicial: negro */
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease-in-out;
+  transform-origin: center; /* Aseguramos que las líneas roten desde su centro */
+}
+
+/* Posicionamiento inicial */
+.menu-icon span:nth-child(1) {
+  top: 0; /* Línea superior */
+}
+
+.menu-icon span:nth-child(2) {
+  top: 50%; /* Línea del medio */
+  transform: translateY(-50%);
+}
+
+.menu-icon span:nth-child(3) {
+  bottom: 0; /* Línea inferior */
 }
 
 /* Animación para la "X" cuando se activa */
 
-/* La primera línea se baja y rota 45° (forma de barra superior de la X) */
-.menu-icon.active span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-
-/* La segunda línea se desvanece */
-.menu-icon.active span:nth-child(2) {
-  opacity: 0;
-}
-
-/* La tercera línea se sube y rota -45° (forma de barra inferior de la X) */
+.menu-icon.active span:nth-child(1),
 .menu-icon.active span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+  top: 50%; /* Reposicionamos las líneas al centro */
+  transform: translateY(-50%) rotate(45deg); /* Rotación precisa desde el centro */
+}
+
+.menu-icon.active span:nth-child(1) {
+  transform: translateY(-50%) rotate(45deg); /* Rotación de la línea superior */
+}
+
+.menu-icon.active span:nth-child(2) {
+  opacity: 0; /* Desaparece la línea del medio */
+}
+
+.menu-icon.active span:nth-child(3) {
+  transform: translateY(-50%) rotate(-45deg); /* Rotación de la línea inferior */
 }
 
 /* Menú lateral */
@@ -53,7 +95,7 @@ body {
   background-color: white;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .menu.active {
@@ -82,12 +124,11 @@ body {
   background-color: #f0f8ff;
 }
 
-/* Encabezado */
-header {
-  background-color: #007BFF;
-  color: white;
-  text-align: center;
-  padding: 20px;
+/* Título del sitio */
+header h1 {
+  margin: 0;
+  font-size: 1.5rem; /* Reducimos el tamaño del título */
+  font-weight: bold;
 }
 
 /* Contenido principal */
