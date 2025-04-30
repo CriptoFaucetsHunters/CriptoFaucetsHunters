@@ -2,87 +2,74 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  scroll-behavior: smooth; /* Hace que el scroll sea suave */
-}
-
-/* Estilo para la imagen destacada */
-.featured-image {
-  position: relative; /* Permite posicionarla correctamente */
-  width: 100%; /* Ocupa todo el ancho de la pantalla */
-  height: 250px; /* Altura de la imagen destacada */
-  background-image: url('assets/images/IMG_2913.jpeg'); /* Ruta de la imagen */
-  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-  background-position: center; /* Centra la imagen */
-  z-index: 1; /* Asegura que quede detrás de la barra */
-  margin-top: -40px; /* Desplaza la imagen hacia arriba para que quede parcialmente oculta por la barra */
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  scroll-behavior: smooth;
 }
 
 /* Encabezado fijo */
 header {
   position: sticky;
-  top: 0; /* Asegura que el encabezado quede fijo en la parte superior */
-  background-color: white; /* Fondo blanco para el encabezado */
+  top: 0;
+  background-color: white;
   display: flex;
   align-items: center;
   padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para resaltar el encabezado */
-  z-index: 3000; /* Asegura que el encabezado esté por encima del menú lateral */
-  transition: transform 0.2s ease; /* Agregamos transición para el efecto suave */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3000;
+  transition: transform 0.2s ease;
 }
 
 .menu-icon {
   position: relative;
-  width: 26px; /* Ancho fijo para el contenedor del ícono */
-  height: 22px; /* Altura reducida del contenedor */
+  width: 28px;
+  height: 22px;
   cursor: pointer;
-  margin-right: 25px; /* Espacio adicional entre el botón y el título */
+  margin-right: 25px;
 }
 
 .menu-icon span {
   position: absolute;
   left: 0;
   right: 0;
+  height: 2px;
   width: 100%;
-  height: 3px; /* Grosor reducido para las líneas (entre 1px y 2px) */
-  background-color: black; /* Color inicial: negro */
+  height: 3px;
+  background-color: black;
   transition: all 0.3s ease-in-out;
-  transform-origin: center; /* Aseguramos que las líneas roten desde su centro */
+  transform-origin: center;
 }
 
-/* Posicionamiento inicial */
 .menu-icon span:nth-child(1) {
-  top: 0; /* Línea superior */
+  top: 0;
 }
 
 .menu-icon span:nth-child(2) {
-  top: 50%; /* Línea del medio */
+  top: 50%;
   transform: translateY(-50%);
 }
 
 .menu-icon span:nth-child(3) {
-  bottom: 0; /* Línea inferior */
+  bottom: 0;
 }
-
-/* Animación para la "X" cuando se activa */
 
 .menu-icon.active span:nth-child(1),
 .menu-icon.active span:nth-child(3) {
-  top: 50%; /* Reposicionamos las líneas al centro */
-  transform: translateY(-50%) rotate(45deg); /* Rotación precisa desde el centro */
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .menu-icon.active span:nth-child(1) {
-  transform: translateY(-50%) rotate(45deg); /* Rotación de la línea superior */
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .menu-icon.active span:nth-child(2) {
-  opacity: 0; /* Desaparece la línea del medio */
+  opacity: 0;
 }
 
 .menu-icon.active span:nth-child(3) {
-  transform: translateY(-50%) rotate(-45deg); /* Rotación de la línea inferior */
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* Menú lateral */
@@ -123,7 +110,6 @@ header {
 .menu ul li a:hover {
   background-color: #f0f8ff;
 }
-
 /* Título del sitio */
 header h1 {
   margin: 0;
@@ -131,9 +117,74 @@ header h1 {
   font-weight: bold;
 }
 
-/* Contenido principal */
-main {
+/* Imagen destacada */
+.featured-image {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background-image: url('assets/images/IMG_2913.jpeg'); /* Cambia esta ruta */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  margin-top: -40px;
+}
+
+/* Sección Hero */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Secciones adicionales */
+#about, #services {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.service-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.service-item {
+  background-color: #f9f9f9;
   padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .service-item {
+    width: 100%;
+  }
 }
 
 /* Footer */
