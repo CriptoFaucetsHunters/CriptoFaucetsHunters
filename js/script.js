@@ -1,14 +1,17 @@
+// Espera a que el DOM se cargue completamente
 document.addEventListener("DOMContentLoaded", function(){
-  // Cargar los fragmentos del header y footer
-  loadHTMLFragment("header", "header.html");
-  loadHTMLFragment("footer", "footer.html");
+  // Utiliza window.fragmentBasePath si está definida (en páginas en subcarpetas) o una cadena vacía
+  var basePath = window.fragmentBasePath || "";
   
-  // Manejo del clic fuera del menú para cerrarlo
+  // Cargar el fragmento del header y el footer usando la ruta base
+  loadHTMLFragment("header", basePath + "header.html");
+  loadHTMLFragment("footer", basePath + "footer.html");
+  
+  // Manejo de clic fuera del menú lateral para cerrarlo
   document.addEventListener("click", function(e){
     const sidebar = document.getElementById("sidebar");
     const menuButton = document.getElementById("menu-button");
     if (!sidebar) return;
-    
     if (sidebar.classList.contains("active") &&
         !sidebar.contains(e.target) &&
         !menuButton.contains(e.target)) {
@@ -16,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
   
-  // Manejo de submenus
+  // Manejo de submenús del menú lateral
   let submenuParents = document.querySelectorAll('.menu-item.has-submenu > a');
   submenuParents.forEach(item => {
     item.addEventListener('click', function(e) {
@@ -40,15 +43,23 @@ document.addEventListener("DOMContentLoaded", function(){
 // Función para cargar fragmentos HTML (header/footer)
 function loadHTMLFragment(id, file) {
   fetch(file)
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error " + response.status + " al cargar " + file);
+      }
+      return response.text();
+    })
     .then(data => {
       document.getElementById(id).innerHTML = data;
-      if (id === "header") addMenuToggle();
+      // Si estamos cargando el header, agregar el manejo de clic del botón hamburguesa
+      if (id === "header") {
+        addMenuToggle();
+      }
     })
     .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
 
-// Agregar el manejador de clic en el botón del menú
+// Agrega el manejador de clic en el botón del menú
 function addMenuToggle() {
   const menuButton = document.getElementById("menu-button");
   menuButton.addEventListener("click", function(e){
@@ -57,7 +68,7 @@ function addMenuToggle() {
   });
 }
 
-// Función para alternar la visibilidad del menú lateral y la transformación del botón
+// Función para alternar la visibilidad del menú lateral y la animación del botón hamburguesa
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const menuButton = document.getElementById("menu-button");
