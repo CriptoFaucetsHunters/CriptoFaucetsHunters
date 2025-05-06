@@ -1,9 +1,9 @@
-/* Asegurarse de que el html y el body ocupen el 100% de la altura */
+/* Asegurarse de que html y body ocupen el 100% de la altura */
 html, body {
   height: 100%;
 }
 
-/* Configurar el body como contenedor flexible (flex) para empujar el footer al fondo */
+/* Configurar el body como contenedor flexible para empujar el footer al fondo */
 body {
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ body {
   line-height: 1.6;
 }
 
-/* El main ocupa el espacio disponible y se le agrega padding-top para no quedar tapado por el header fijo */
+/* El main ocupa el espacio disponible y se le agrega padding-top para que no quede tapado por el header fijo */
 main {
   flex: 1;
   padding: 120px 20px 20px;
@@ -26,13 +26,13 @@ main {
   box-sizing: border-box;
 }
 
-/* HEADER - Ahora usamos fixed para asegurar compatibilidad en iOS */
+/* HEADER: Usamos fixed para que el header permanezca siempre visible y le damos un fondo semi-transparente */
 .main-header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* Cubre todo el ancho de la pantalla */
-  background-color: #2C3E50;
+  width: 100%;
+  background-color: rgba(44, 62, 80, 0.9);  /* Transparencia para ver parte de la imagen debajo */
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   z-index: 1000;
@@ -47,14 +47,13 @@ main {
   position: relative;
 }
 
-/* Título del sitio */
 .site-title {
   font-size: 1.5rem;
   text-align: center;
   margin: 0;
 }
 
-/* BOTÓN HAMBURGUESA con tres líneas */
+/* Botón Hamburguesa con tres líneas */
 #menu-button {
   position: absolute;
   left: 15px;
@@ -73,7 +72,7 @@ main {
   transition: 0.3s;
 }
 
-/* Transformación a “X” cuando el botón tiene la clase "open" */
+/* Transformación a “X” cuando el botón tiene la clase open */
 #menu-button.open .hamburger-line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -112,7 +111,6 @@ main {
   margin: 20px;
 }
 
-/* Enlaces del menú principal */
 .sidebar li a {
   color: white;
   text-decoration: none;
@@ -121,7 +119,7 @@ main {
   padding: 10px 20px;
 }
 
-/* Submenú: inicialmente oculto */
+/* Submenú */
 .submenu {
   display: none;
 }
@@ -130,11 +128,18 @@ main {
   display: block;
 }
 
-/* Estilo de los enlaces del submenu (color y sangría diferente) */
 .submenu li a {
   color: #BDC3C7;
   font-size: 1rem;
   padding-left: 40px;
+}
+
+/* IMAGEN DESTACADA: Ocupa todo el ancho de la pantalla y se solapa ligeramente con el header */
+.featured-image {
+  width: 100vw;
+  max-width: 100%;
+  display: block;
+  margin-top: -20px;
 }
 
 /* FOOTER */
