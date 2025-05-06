@@ -1,15 +1,9 @@
-/* 
-  Asegurarse de que html y body ocupen el 100% de la altura 
-*/
+/* Asegurarse de que html y body ocupen el 100% de la altura */
 html, body {
   height: 100%;
 }
 
-/* 
-  Configuración del body:
-  - Se usa flexbox para estructurar el layout y empujar el footer al fondo en caso de poco contenido.
-  - Se definen márgenes, padding y tipografía base.
-*/
+/* Configuración del body utilizando flexbox para estructurar el layout */
 body {
   display: flex;
   flex-direction: column;
@@ -21,42 +15,30 @@ body {
   line-height: 1.6;
 }
 
-/* 
-  'main' ocupa el espacio disponible y recibe un padding-top 
-  para que el contenido no quede tapado por el header fijo.
-*/
+/* 'main' ocupa el espacio disponible y tiene padding-top para que el contenido no quede tapado por el header */
 main {
   flex: 1;
   padding: 120px 20px 20px;
 }
 
-/* 
-  Reset global: se establece box-sizing para todos los elementos.
-*/
+/* Reset global: Ajuste del box-sizing para todos los elementos */
 * {
   box-sizing: border-box;
 }
 
-/* 
-  HEADER:
-  - Se utiliza position: fixed para que el header permanezca visible al hacer scroll.
-  - Se aplica un fondo semi-transparente para permitir ver parte de la imagen destacada debajo.
-*/
+/* HEADER: Uso de posición fixed y fondo semi-transparente */
 .main-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(44, 62, 80, 0.9); /* Fondo semi-transparente */
+  background-color: rgba(44, 62, 80, 0.9);  /* Fondo semi-transparente */
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   z-index: 1000;
 }
 
-/* 
-  Contenedor del header:
-  - Centrado del título y posición relativa para el botón hamburguesa.
-*/
+/* Contenedor del header */
 .header-container {
   display: flex;
   align-items: center;
@@ -65,20 +47,14 @@ main {
   position: relative;
 }
 
-/* 
-  Estilo para el título del sitio.
-*/
+/* Título del sitio */
 .site-title {
   font-size: 1.5rem;
   text-align: center;
   margin: 0;
 }
 
-/* 
-  Botón Hamburguesa:
-  - Posicionado en la esquina izquierda con z-index superior.
-  - Compuesto por tres líneas (hamburger-line) para formar el icono.
-*/
+/* BOTÓN HAMBURGUESA */
 #menu-button {
   position: absolute;
   left: 15px;
@@ -97,26 +73,18 @@ main {
   transition: 0.3s;
 }
 
-/* 
-  Transformación a "X" cuando el botón hamburguesa tiene la clase 'open'.
-*/
+/* Transformación a “X” al abrir el menú */
 #menu-button.open .hamburger-line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
-
 #menu-button.open .hamburger-line:nth-child(2) {
   opacity: 0;
 }
-
 #menu-button.open .hamburger-line:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* 
-  MENÚ LATERAL:
-  - Posicionado de forma fija a la izquierda y oculto inicialmente.
-  - Se muestra al activarse la clase 'active'.
-*/
+/* MENÚ LATERAL */
 .sidebar {
   position: fixed;
   top: 0;
@@ -133,9 +101,6 @@ main {
   left: 0;
 }
 
-/* 
-  Lista y enlaces del menú lateral.
-*/
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -153,30 +118,20 @@ main {
   padding: 10px 20px;
 }
 
-/* 
-  Submenú (dentro del menú lateral):
-  - Inicialmente oculto, se muestra cuando tiene la clase 'open'.
-*/
+/* Submenú */
 .submenu {
   display: none;
 }
-
 .submenu.open {
   display: block;
 }
-
 .submenu li a {
   color: #BDC3C7;
   font-size: 1rem;
   padding-left: 40px;
 }
 
-/* 
-  IMAGEN DESTACADA:
-  - Se extiende al ancho completo del viewport con width: 100vw.
-  - Se usa margin-left calculado para compensar los márgenes del contenedor 'main'.
-  - Se emplea margin-top negativo para lograr un solapamiento sutil con el header.
-*/
+/* IMAGEN DESTACADA: Ancho completo, corregido para sacar la imagen de los márgenes del main, solapando –60px con el header */
 .featured-image {
   width: 100vw;
   margin-left: calc((100vw - 100%)/2 * -1);
@@ -184,22 +139,15 @@ main {
   margin-top: -60px;
 }
 
-/* 
-  BLOQUES DESTACADOS (.highlight-note):
-  - Para resaltar notas o fragmentos importantes.
-  - Fondo en tono sutil de turquesa y borde izquierdo con acento.
-*/
+/* BLOQUES DESTACADOS (.highlight-note) */
 .highlight-note {
-  background-color: #e8f4f1;          
-  border-left: 6px solid #1ABC9C;       
+  background-color: #e8f4f1;           /* Tono sutil */
+  border-left: 6px solid #1ABC9C;       /* Color de acento */
   padding: 10px;
   margin: 15px 0;
 }
 
-/* 
-  ENCABEZADOS DE SECCIÓN (.section-header):
-  - Texto de mayor tamaño, con sombra y línea inferior para resaltar.
-*/
+/* ENCABEZADOS DE SECCIÓN (.section-header) */
 .section-header {
   font-size: 1.8rem;
   color: #2C3E50;
@@ -210,10 +158,7 @@ main {
   margin-bottom: 10px;
 }
 
-/* 
-  TARJETAS (.card):
-  - Para resaltar secciones específicas del contenido con fondo blanco y sombra.
-*/
+/* TARJETAS (.card) */
 .card {
   background-color: #ffffff;
   padding: 15px;
@@ -221,10 +166,7 @@ main {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* 
-  FOOTER:
-  - Fondo sobrio y texto centrado, con padding definido.
-*/
+/* FOOTER */
 .main-footer {
   background-color: #2C3E50;
   color: white;
@@ -233,15 +175,11 @@ main {
   font-size: 0.9rem;
 }
 
-/* 
-  Responsividad:
-  - Ajustes para dispositivos con ancho menor a 768px.
-*/
+/* RESPONSIVIDAD */
 @media (max-width: 768px) {
   .site-title {
     font-size: 1.2rem;
   }
-  
   .sidebar a {
     font-size: 1rem;
   }
