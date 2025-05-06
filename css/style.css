@@ -1,9 +1,9 @@
-/* Asegurar que html y body tengan el 100% de la altura */
+/* Asegurarse de que el html y el body ocupen el 100% de la altura */
 html, body {
   height: 100%;
 }
 
-/* Configurar el body como contenedor flexible para empujar el footer al final */
+/* Configurar el body como contenedor flexible (flex) para empujar el footer al fondo */
 body {
   display: flex;
   flex-direction: column;
@@ -15,10 +15,10 @@ body {
   line-height: 1.6;
 }
 
-/* El main ocupará el espacio disponible */
+/* El main ocupa el espacio disponible y se le agrega padding-top para no quedar tapado por el header fijo */
 main {
   flex: 1;
-  padding: 20px;
+  padding: 120px 20px 20px;
 }
 
 /* Reset general */
@@ -26,17 +26,19 @@ main {
   box-sizing: border-box;
 }
 
-/* Header */
+/* HEADER - Ahora usamos fixed para asegurar compatibilidad en iOS */
 .main-header {
-  position: -webkit-sticky; /* Soporte para Safari en iOS */
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%; /* Cubre todo el ancho de la pantalla */
   background-color: #2C3E50;
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   z-index: 1000;
 }
 
+/* Contenedor del header */
 .header-container {
   display: flex;
   align-items: center;
@@ -45,20 +47,21 @@ main {
   position: relative;
 }
 
+/* Título del sitio */
 .site-title {
   font-size: 1.5rem;
   text-align: center;
   margin: 0;
 }
 
-/* Botón Hamburguesa con tres líneas */
+/* BOTÓN HAMBURGUESA con tres líneas */
 #menu-button {
   position: absolute;
   left: 15px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1100; /* Asegura que el botón esté encima de otros elementos */
+  z-index: 1100;
 }
 
 .hamburger-line {
@@ -70,7 +73,7 @@ main {
   transition: 0.3s;
 }
 
-/* Efecto de transformación a "X" cuando se agrega la clase open */
+/* Transformación a “X” cuando el botón tiene la clase "open" */
 #menu-button.open .hamburger-line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -83,7 +86,7 @@ main {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Menú Lateral */
+/* MENÚ LATERAL */
 .sidebar {
   position: fixed;
   top: 0;
@@ -118,7 +121,7 @@ main {
   padding: 10px 20px;
 }
 
-/* Submenu */
+/* Submenú: inicialmente oculto */
 .submenu {
   display: none;
 }
@@ -127,14 +130,14 @@ main {
   display: block;
 }
 
-/* Estilo para los enlaces del submenu (color e indentación distinta) */
+/* Estilo de los enlaces del submenu (color y sangría diferente) */
 .submenu li a {
   color: #BDC3C7;
   font-size: 1rem;
   padding-left: 40px;
 }
 
-/* Footer */
+/* FOOTER */
 .main-footer {
   background-color: #2C3E50;
   color: white;
