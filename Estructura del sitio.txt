@@ -1,1 +1,22 @@
-
+/ (Raíz del proyecto)
+│
+├── index.html              // Página de bienvenida (HomePage)
+├── header.html             // Fragmento común del header
+├── footer.html             // Fragmento común del footer
+├── css/
+│   └── style.css           // Archivo global de estilos
+├── js/
+│   └── script.js           // Archivo global de JavaScript
+├── img/                    // Aquí guardarás tus imágenes (por ejemplo, IMG_2913.jpeg)
+├── reviews/
+│   ├── review1/
+│   │   └── index.html      // Página de review 1
+│   ├── review2/
+│   │   └── index.html      // Página de review 2
+│   └── ...                 // Más reviews
+└── tutoriales/
+    ├── tutorial1/
+    │   └── index.html      // Página de tutorial 1
+    ├── tutorial2/
+    │   └── index.html      // Página de tutorial 2
+    └── ...                 // Más tutoriales
