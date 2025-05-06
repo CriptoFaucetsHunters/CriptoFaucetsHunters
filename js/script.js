@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-  // Cargar fragmentos del header y footer
+  // Cargar los fragmentos del header y footer
   loadHTMLFragment("header", "header.html");
   loadHTMLFragment("footer", "footer.html");
   
@@ -43,7 +43,7 @@ function loadHTMLFragment(id, file) {
     .then(response => response.text())
     .then(data => {
       document.getElementById(id).innerHTML = data;
-      if(id === "header") addMenuToggle();
+      if (id === "header") addMenuToggle();
     })
     .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
@@ -57,33 +57,15 @@ function addMenuToggle() {
   });
 }
 
-// Alternar la visibilidad del menú lateral
+// Función para alternar la visibilidad del menú lateral y la transformación del botón
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const menuButton = document.getElementById("menu-button");
   if (sidebar.classList.contains("active")) {
     sidebar.classList.remove("active");
-    resetHamburger();
+    menuButton.classList.remove("open");
   } else {
     sidebar.classList.add("active");
-    transformHamburgerToX();
-  }
-}
-
-// Transforma el ícono de hamburguesa en "X"
-function transformHamburgerToX() {
-  const hamburger = document.querySelector("#menu-button .hamburger");
-  if (hamburger) {
-    hamburger.style.transform = "rotate(45deg)";
-    hamburger.style.backgroundColor = "#E74C3C";
-  }
-}
-
-// Restaura el icono a su estado original
-function resetHamburger() {
-  const hamburger = document.querySelector("#menu-button .hamburger");
-  if (hamburger) {
-    hamburger.style.transform = "rotate(0deg)";
-    hamburger.style.backgroundColor = "#1ABC9C";
+    menuButton.classList.add("open");
   }
 }
