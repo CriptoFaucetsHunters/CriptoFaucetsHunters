@@ -1,15 +1,29 @@
-/* Reset & Global */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Asegurar que html y body tengan el 100% de la altura */
+html, body {
+  height: 100%;
 }
 
+/* Configurar el body como contenedor flexible para empujar el footer al final */
 body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
   color: #333333;
   background-color: #F4F4F4;
   line-height: 1.6;
+}
+
+/* El main ocupará el espacio disponible */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Reset general */
+* {
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -36,23 +50,36 @@ body {
   margin: 0;
 }
 
-/* Botón Hamburguesa */
+/* Botón Hamburguesa con tres líneas */
 #menu-button {
   position: absolute;
   left: 15px;
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1100; /* Asegura que el botón esté encima de otros elementos */
 }
 
-.hamburger, .hamburger::before, .hamburger::after {
-  content: "";
+.hamburger-line {
   display: block;
   width: 25px;
   height: 3px;
+  margin: 4px 0;
   background-color: #1ABC9C;
-  margin: 5px 0;
   transition: 0.3s;
+}
+
+/* Efecto de transformación a "X" cuando se agrega la clase open */
+#menu-button.open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+#menu-button.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-button.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Menú Lateral */
@@ -81,7 +108,7 @@ body {
   margin: 20px;
 }
 
-/* Estilo de los enlaces del menú principal */
+/* Enlaces del menú principal */
 .sidebar li a {
   color: white;
   text-decoration: none;
@@ -90,7 +117,7 @@ body {
   padding: 10px 20px;
 }
 
-/* Submenú */
+/* Submenu */
 .submenu {
   display: none;
 }
@@ -99,16 +126,11 @@ body {
   display: block;
 }
 
-/* Diferencia de estilos en el submenu */
+/* Estilo para los enlaces del submenu (color e indentación distinta) */
 .submenu li a {
-  color: #BDC3C7;  /* Color más claro */
+  color: #BDC3C7;
   font-size: 1rem;
   padding-left: 40px;
-}
-
-/* Contenido Principal */
-main {
-  padding: 20px;
 }
 
 /* Footer */
