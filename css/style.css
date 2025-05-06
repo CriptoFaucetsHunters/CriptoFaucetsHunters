@@ -32,7 +32,7 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(44, 62, 80, 0.9);  /* Transparencia para ver parte de la imagen debajo */
+  background-color: rgba(44, 62, 80, 0.9);
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   z-index: 1000;
@@ -134,10 +134,10 @@ main {
   padding-left: 40px;
 }
 
-/* IMAGEN DESTACADA: Ocupa todo el ancho de la pantalla y se solapa ligeramente con el header */
+/* IMAGEN DESTACADA: Se extiende al ancho completo del viewport y se centra respecto al contenedor */
 .featured-image {
   width: 100vw;
-  max-width: 100%;
+  margin-left: calc((100vw - 100%)/2 * -1);
   display: block;
   margin-top: -20px;
 }
