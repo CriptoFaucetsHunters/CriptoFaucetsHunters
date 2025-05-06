@@ -28,6 +28,7 @@ main {
 
 /* Header */
 .main-header {
+  position: -webkit-sticky; /* Soporte para Safari en iOS */
   position: sticky;
   top: 0;
   background-color: #2C3E50;
