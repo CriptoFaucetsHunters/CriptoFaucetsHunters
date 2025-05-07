@@ -21,18 +21,18 @@ main {
   padding: 120px 20px 20px;
 }
 
-/* Reset global: Ajuste del box-sizing para todos los elementos */
+/* Reset global: Establece el box-sizing para todos los elementos */
 * {
   box-sizing: border-box;
 }
 
-/* HEADER: Uso de posición fixed y fondo semi-transparente */
+/* HEADER: Posición fixed para mantenerlo visible al hacer scroll, con fondo semi-transparente */
 .main-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(44, 62, 80, 0.9);  /* Fondo semi-transparente */
+  background-color: rgba(44, 62, 80, 0.9); /* Fondo semi-transparente */
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   z-index: 1000;
@@ -131,7 +131,10 @@ main {
   padding-left: 40px;
 }
 
-/* IMAGEN DESTACADA: Ancho completo, corregido para sacar la imagen de los márgenes del main, solapando –60px con el header */
+/* IMAGEN DESTACADA:
+   - Ancho completo (100vw) y se corrige el margen izquierdo para salir del padding del main.
+   - margin-top: -60px para lograr el solapamiento deseado con el header.
+*/
 .featured-image {
   width: 100vw;
   margin-left: calc((100vw - 100%)/2 * -1);
