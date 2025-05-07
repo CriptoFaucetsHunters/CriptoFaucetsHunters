@@ -1,4 +1,58 @@
-/* MENÚ LATERAL */
+/* Asegurarse de que html y body ocupen el 100% de la altura */
+html, body {
+  height: 100%;
+}
+
+/* Configuración del body utilizando flexbox */
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #333333;
+  background-color: #F4F4F4;
+  line-height: 1.6;
+}
+
+/* HEADER: Restaurando color de fondo y visibilidad */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(44, 62, 80, 0.9); /* Fondo semi-transparente */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+/* FOOTER: Restaurando color */
+.main-footer {
+  background-color: #2C3E50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+/* Contenedor del header */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  position: relative;
+}
+
+/* Título del sitio */
+.site-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* MENÚ LATERAL: Restaurando estilos */
 .sidebar {
   position: fixed;
   top: 0;
@@ -15,7 +69,6 @@
   left: 0;
 }
 
-/* Estilos generales para los enlaces del menú */
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -25,44 +78,49 @@
   margin: 10px 0;
 }
 
-/* Ícono de los elementos del menú */
 .sidebar li a {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
   display: flex;
-  justify-content: space-between; /* Alinea el ícono de la derecha */
-  align-items: center; /* Centra verticalmente los elementos */
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 20px;
-}
-
-/* Estilos para los elementos que contienen submenús */
-.menu-item.has-submenu > a {
-  position: relative;
-}
-
-/* Estilo del ícono a la derecha (Chevron Right) */
-.submenu-toggle {
-  font-size: 1rem;
 }
 
 /* SUBMENÚ */
 .submenu {
   display: none;
-  padding-left: 20px; /* Ajustar la alineación a la izquierda */
+  padding-left: 20px;
 }
 
 .submenu.open {
   display: block;
 }
 
-/* Espaciado entre los elementos del submenú */
-.submenu li {
-  padding: 8px 0;
+/* Restaurar estilos del botón hamburguesa */
+#menu-button {
+  position: absolute;
+  left: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
 }
 
-/* Eliminar íconos en los enlaces dentro de los submenús */
-.submenu li a {
+.hamburger-line {
   display: block;
-  font-size: 1rem; /* Ajustar tamaño para que quepan mejor */
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+  background-color: white; /* Restaurar color */
+  transition: 0.3s;
+}
+
+/* IMAGEN DESTACADA: Corrigiendo su tamaño */
+.featured-image {
+  width: 100%; /* Ajuste para evitar expansión excesiva */
+  max-width: 100vw; /* Limitar al ancho de la pantalla */
+  display: block;
+  margin-top: -60px;
 }
