@@ -21,29 +21,44 @@
       <!-- Menú lateral -->
       <nav id="sidebar" class="sidebar">
         <ul>
-          <!-- Enlace a Inicio: se le asigna un id para actualizarlo dinámicamente -->
+          <!-- Enlace a Inicio con ruta ajustada (se supone que la home está en la raíz) -->
           <li>
-            <a id="home-link" href="index.html">
+            <a id="home-link" href="/index.html">
               <i class="fa fa-home"></i> Inicio
             </a>
           </li>
-          <!-- Submenú de Categorías -->
+
+          <!-- Ítem de menú: Tutoriales (contendrá un submenú) -->
+          <li class="menu-item has-submenu">
+            <a href="#">
+              <i class="fa fa-chevron-right submenu-toggle"></i> Tutoriales
+            </a>
+            <ul class="submenu">
+              <li>
+                <a href="tutoriales/que-es-una-criptomoneda/index.html">
+                  <i class="fa fa-book"></i> ¿Qué es una Criptomoneda?
+                </a>
+              </li>
+              <!-- Aquí se pueden agregar más enlaces a otros tutoriales en el futuro -->
+            </ul>
+          </li>
+
+          <!-- Ítem de menú: Categorías (submenú con enlaces de marcador de posición) -->
           <li class="menu-item has-submenu">
             <a href="#">
               <i class="fa fa-chevron-right submenu-toggle"></i> Categorías
             </a>
             <ul class="submenu">
-              <li><a href="#">Subcategoría 1</a></li>
-              <li><a href="#">Subcategoría 2</a></li>
+              <li>
+                <a href="#">Subcategoría 1</a>
+              </li>
+              <li>
+                <a href="#">Subcategoría 2</a>
+              </li>
             </ul>
           </li>
-          <!-- Enlace al primer tutorial -->
-          <li>
-            <a href="tutoriales/que-es-una-criptomoneda/index.html">
-              <i class="fa fa-book"></i> Tutorial: ¿Qué es una Criptomoneda?
-            </a>
-          </li>
-          <!-- Enlace a Reviews -->
+
+          <!-- Ítem de menú: Reseñas -->
           <li>
             <a href="reviews/review1/index.html">
               <i class="fa fa-eye"></i> Reseñas
