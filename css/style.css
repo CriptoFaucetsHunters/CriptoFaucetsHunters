@@ -1,89 +1,3 @@
-/* Asegurarse de que html y body ocupen el 100% de la altura */
-html, body {
-  height: 100%;
-}
-
-/* Configuración del body utilizando flexbox para estructurar el layout */
-body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  color: #333333;
-  background-color: #F4F4F4;
-  line-height: 1.6;
-}
-
-/* 'main' ocupa el espacio disponible y tiene padding-top para que el contenido no quede tapado por el header */
-main {
-  flex: 1;
-  padding: 120px 20px 20px;
-}
-
-/* Reset global: Establece el box-sizing para todos los elementos */
-* {
-  box-sizing: border-box;
-}
-
-/* HEADER: Posición fixed para mantenerlo visible al hacer scroll, con fondo semi-transparente */
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(44, 62, 80, 0.9); /* Fondo semi-transparente */
-  color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-/* Contenedor del header */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  position: relative;
-}
-
-/* Título del sitio */
-.site-title {
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 0;
-}
-
-/* BOTÓN HAMBURGUESA */
-#menu-button {
-  position: absolute;
-  left: 15px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-.hamburger-line {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 4px 0;
-  background-color: #1ABC9C;
-  transition: 0.3s;
-}
-
-/* Transformación a “X” al abrir el menú */
-#menu-button.open .hamburger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-#menu-button.open .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-#menu-button.open .hamburger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
 /* MENÚ LATERAL */
 .sidebar {
   position: fixed;
@@ -101,89 +15,54 @@ main {
   left: 0;
 }
 
+/* Estilos generales para los enlaces del menú */
 .sidebar ul {
   list-style: none;
   padding: 0;
 }
 
 .sidebar li {
-  margin: 20px;
+  margin: 10px 0;
 }
 
+/* Ícono de los elementos del menú */
 .sidebar li a {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  display: block;
+  display: flex;
+  justify-content: space-between; /* Alinea el ícono de la derecha */
+  align-items: center; /* Centra verticalmente los elementos */
   padding: 10px 20px;
 }
 
-/* Submenú */
+/* Estilos para los elementos que contienen submenús */
+.menu-item.has-submenu > a {
+  position: relative;
+}
+
+/* Estilo del ícono a la derecha (Chevron Right) */
+.submenu-toggle {
+  font-size: 1rem;
+}
+
+/* SUBMENÚ */
 .submenu {
   display: none;
+  padding-left: 20px; /* Ajustar la alineación a la izquierda */
 }
+
 .submenu.open {
   display: block;
 }
+
+/* Espaciado entre los elementos del submenú */
+.submenu li {
+  padding: 8px 0;
+}
+
+/* Eliminar íconos en los enlaces dentro de los submenús */
 .submenu li a {
-  color: #BDC3C7;
-  font-size: 1rem;
-  padding-left: 40px;
-}
-
-/* IMAGEN DESTACADA:
-   - Ancho completo (100vw) y se corrige el margen izquierdo para salir del padding del main.
-   - margin-top: -60px para lograr el solapamiento deseado con el header.
-*/
-.featured-image {
-  width: 100vw;
-  margin-left: calc((100vw - 100%)/2 * -1);
   display: block;
-  margin-top: -60px;
-}
-
-/* BLOQUES DESTACADOS (.highlight-note) */
-.highlight-note {
-  background-color: #e8f4f1;           /* Tono sutil */
-  border-left: 6px solid #1ABC9C;       /* Color de acento */
-  padding: 10px;
-  margin: 15px 0;
-}
-
-/* ENCABEZADOS DE SECCIÓN (.section-header) */
-.section-header {
-  font-size: 1.8rem;
-  color: #2C3E50;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  border-bottom: 2px solid #1ABC9C;
-  padding-bottom: 5px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-/* TARJETAS (.card) */
-.card {
-  background-color: #ffffff;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* FOOTER */
-.main-footer {
-  background-color: #2C3E50;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
-}
-
-/* RESPONSIVIDAD */
-@media (max-width: 768px) {
-  .site-title {
-    font-size: 1.2rem;
-  }
-  .sidebar a {
-    font-size: 1rem;
-  }
+  font-size: 1rem; /* Ajustar tamaño para que quepan mejor */
 }
