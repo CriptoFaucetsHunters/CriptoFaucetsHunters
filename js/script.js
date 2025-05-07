@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", function(){
   // Utiliza window.fragmentBasePath si está definida (en páginas en subcarpetas) o una cadena vacía
   var basePath = window.fragmentBasePath || "";
   
-  // Cargar el fragmento del header y el footer usando la ruta base
+  // Cargar el fragmento del header y del footer usando la ruta base establecida
   loadHTMLFragment("header", basePath + "header.html");
   loadHTMLFragment("footer", basePath + "footer.html");
   
-  // Manejo de clic fuera del menú lateral para cerrarlo
+  // Cierra el menú lateral al hacer clic fuera de él
   document.addEventListener("click", function(e){
     const sidebar = document.getElementById("sidebar");
     const menuButton = document.getElementById("menu-button");
@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
   
-  // Manejo de submenús del menú lateral
+  // Manejo de submenús en el menú lateral
   let submenuParents = document.querySelectorAll('.menu-item.has-submenu > a');
   submenuParents.forEach(item => {
     item.addEventListener('click', function(e) {
-      e.preventDefault(); // Prevenir navegación
+      e.preventDefault(); // Prevenir navegación estándar
       let submenu = item.nextElementSibling;
       let icon = item.querySelector('.submenu-toggle');
       if (submenu) {
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 });
 
-// Función para cargar fragmentos HTML (header/footer)
+// Función para cargar fragmentos HTML (header o footer)
 function loadHTMLFragment(id, file) {
   fetch(file)
     .then(response => {
@@ -51,15 +51,15 @@ function loadHTMLFragment(id, file) {
     })
     .then(data => {
       document.getElementById(id).innerHTML = data;
-      // Si estamos cargando el header, agregar el manejo de clic del botón hamburguesa
-      if (id === "header") {
-        addMenuToggle();
+      if(id === "header") {
+         addMenuToggle();
+         updateHomeLink(); // Actualiza el href del enlace "Inicio"
       }
     })
     .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
 
-// Agrega el manejador de clic en el botón del menú
+// Agrega el manejo de clic en el botón hamburguesa
 function addMenuToggle() {
   const menuButton = document.getElementById("menu-button");
   menuButton.addEventListener("click", function(e){
@@ -68,7 +68,7 @@ function addMenuToggle() {
   });
 }
 
-// Función para alternar la visibilidad del menú lateral y la animación del botón hamburguesa
+// Función para alternar la visibilidad del menú lateral y la animación del botón
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const menuButton = document.getElementById("menu-button");
@@ -78,5 +78,14 @@ function toggleSidebar() {
   } else {
     sidebar.classList.add("active");
     menuButton.classList.add("open");
+  }
+}
+
+// Función para actualizar el enlace "Inicio" usando la variable global basePath
+function updateHomeLink() {
+  var homeLink = document.getElementById("home-link");
+  if (homeLink) {
+    // Actualiza el href para que apunte correctamente a la home (index.html en la raíz)
+    homeLink.href = (window.fragmentBasePath || "") + "index.html";
   }
 }
