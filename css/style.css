@@ -1,6 +1,7 @@
 /* Configuración inicial */
 html, body {
   height: 100%;
+  overflow-x: hidden; /* Evita el scroll horizontal */
 }
 
 body {
@@ -24,15 +25,18 @@ body {
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el título */
+  height: 60px; /* Ajusta la altura */
 }
 
-/* FOOTER */
-.main-footer {
-  background-color: #2C3E50;
-  color: white;
+/* Título en el header */
+.site-title {
+  font-size: 1.5rem; /* Tamaño corregido */
   text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
+  position: relative;
+  z-index: 1000;
 }
 
 /* MENÚ LATERAL */
@@ -61,7 +65,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1100;
+  z-index: 1500; /* Asegura que esté por encima del título */
 }
 
 /* Líneas del botón hamburguesa */
@@ -74,11 +78,11 @@ body {
   transition: 0.3s;
 }
 
-/* SUBMENÚS */
-.submenu {
-  display: none; /* Inicialmente ocultos */
-}
-
-.submenu.open {
-  display: block; /* Se muestran cuando se activan */
+/* IMAGEN DESTACADA */
+.featured-image {
+  width: 100%;
+  max-width: 600px; /* Limita el tamaño */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
