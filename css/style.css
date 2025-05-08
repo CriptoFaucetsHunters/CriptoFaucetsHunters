@@ -27,23 +27,23 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centra el título */
-  height: 60px; /* Ajusta la altura */
+  justify-content: center;
+  height: 60px;
 }
 
 /* Título en el header */
 .site-title {
-  font-size: 1.5rem; /* Tamaño corregido */
+  font-size: 1.6rem;
   text-align: center;
-  position: relative;
-  z-index: 1000;
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* MENÚ LATERAL */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px; /* Inicialmente oculto */
+  left: -250px;
   width: 250px;
   height: 100vh;
   background-color: #2C3E50;
@@ -53,19 +53,20 @@ body {
 }
 
 .sidebar.active {
-  left: 0; /* Se muestra cuando está activo */
+  left: 0;
 }
 
 /* BOTÓN HAMBURGUESA */
 #menu-button {
   position: absolute;
   left: 15px;
+  top: 10px; /* Lo baja un poco */
   width: 40px;
   height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1500; /* Asegura que esté por encima del título */
+  z-index: 1500;
 }
 
 /* Líneas del botón hamburguesa */
@@ -81,8 +82,24 @@ body {
 /* IMAGEN DESTACADA */
 .featured-image {
   width: 100%;
-  max-width: 600px; /* Limita el tamaño */
+  max-width: 600px;
   height: auto;
   display: block;
+  margin-top: -60px;
+}
+
+/* CONTENIDO PRINCIPAL */
+main {
+  max-width: 900px;
   margin: 0 auto;
+  padding: 20px;
+}
+
+/* FOOTER */
+.main-footer {
+  background-color: #2C3E50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
 }
