@@ -1,67 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cripto Faucets Hunters - Header</title>
-    <!-- Integración de Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    <header class="main-header">
-      <div class="header-container">
-        <!-- Botón hamburguesa con tres líneas -->
-        <button id="menu-button" aria-label="Abrir menú">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-        <h1 class="site-title">Cripto Faucets Hunters</h1>
-      </div>
-      <!-- Menú lateral -->
-      <nav id="sidebar" class="sidebar">
-        <ul>
-          <!-- Enlace a Inicio (ruta absoluta) -->
+<header class="main-header">
+  <div class="header-container">
+    <!-- Botón hamburguesa -->
+    <button id="menu-button" aria-label="Abrir menú">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <h1 class="site-title">Cripto Faucets Hunters</h1>
+  </div>
+  <!-- Menú lateral -->
+  <nav id="sidebar" class="sidebar">
+    <ul>
+      <li>
+        <a id="home-link" href="/index.html">
+          <i class="fa fa-home"></i> Inicio
+        </a>
+      </li>
+      <li class="menu-item has-submenu">
+        <a href="#">
+          <i class="fa fa-book"></i> Tutoriales
+          <i class="fa fa-chevron-right submenu-toggle"></i>
+        </a>
+        <ul class="submenu">
           <li>
-            <a id="home-link" href="/index.html">
-              <i class="fa fa-home"></i> Inicio
-            </a>
-          </li>
-
-          <!-- Ítem de menú: Tutoriales (con submenú) -->
-          <li class="menu-item has-submenu">
-            <a href="#">
-              <i class="fa fa-book"></i> Tutoriales
-              <i class="fa fa-chevron-right submenu-toggle"></i>
-            </a>
-            <ul class="submenu">
-              <li>
-                <a href="tutoriales/que-es-una-criptomoneda/index.html">¿Qué es una Criptomoneda?</a>
-              </li>
-              <!-- Se pueden agregar más tutoriales aquí en el futuro -->
-            </ul>
-          </li>
-
-          <!-- Ítem de menú: Categorías (con submenú de ejemplo) -->
-          <li class="menu-item has-submenu">
-            <a href="#">
-              <i class="fa fa-folder-open"></i> Categorías
-              <i class="fa fa-chevron-right submenu-toggle"></i>
-            </a>
-            <ul class="submenu">
-              <li><a href="#">Subcategoría 1</a></li>
-              <li><a href="#">Subcategoría 2</a></li>
-            </ul>
-          </li>
-
-          <!-- Ítem de menú: Reseñas -->
-          <li>
-            <a href="reviews/review1/index.html">
-              <i class="fa fa-eye"></i> Reseñas
-            </a>
+            <a href="tutoriales/que-es-una-criptomoneda/index.html">¿Qué es una Criptomoneda?</a>
           </li>
         </ul>
-      </nav>
-    </header>
-  </body>
-</html>
+      </li>
+      <li>
+        <a href="reviews/review1/index.html">
+          <i class="fa fa-eye"></i> Reseñas
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
