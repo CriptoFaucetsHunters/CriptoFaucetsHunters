@@ -35,7 +35,7 @@
         /* ===== NAVEGACIÓN ===== */
         .navbar {
             background-color: var(--fondo-secundario);
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -48,15 +48,16 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Espacio entre elementos */
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* Un poco más pequeño para que quepa bien en móvil */
             font-weight: bold;
             color: var(--texto-principal);
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .logo span {
@@ -99,10 +100,11 @@
 
         /* Menú hamburguesa (móvil) */
         .hamburger {
-            display: none;
+            display: none; /* Oculto en PC por defecto */
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            order: 1; /* Fuerza al hamburger a ser el primero a la izquierda */
         }
 
         .hamburger span {
@@ -116,7 +118,7 @@
         /* ===== CONTENIDO PRINCIPAL ===== */
         .main-content {
             margin-top: 80px;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
@@ -183,7 +185,7 @@
         /* Tarjetas */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
@@ -193,12 +195,17 @@
             border-radius: 10px;
             border: 1px solid var(--borde-sutil);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--acento-cian);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        /* Efecto hover solo para dispositivos con mouse */
+        @media (hover: hover) {
+            .card:hover {
+                transform: translateY(-5px);
+                border-color: var(--acento-cian);
+                box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+            }
         }
 
         .card-icon {
@@ -214,6 +221,7 @@
 
         .card p {
             color: var(--texto-secundario);
+            font-size: 0.95rem;
         }
 
         .card-link {
@@ -253,24 +261,27 @@
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
+                z-index: 1001; /* Por encima del menú desplegable */
             }
 
             .nav-menu {
                 position: fixed;
-                left: -100%;
+                left: -100%; /* Oculto a la izquierda */
                 top: 70px;
                 flex-direction: column;
                 background-color: var(--fondo-secundario);
                 width: 100%;
                 text-align: center;
-                transition: 0.3s;
+                transition: 0.3s ease-in-out;
                 padding: 2rem 0;
                 gap: 1.5rem;
                 border-bottom: 2px solid var(--acento-cian);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                height: calc(100vh - 70px); /* Altura completa menos la barra */
             }
 
             .nav-menu.active {
-                left: 0;
+                left: 0; /* Aparece */
             }
 
             .hero h1 {
@@ -293,6 +304,12 @@
                 padding: 1rem;
                 margin-top: 70px;
             }
+            
+            /* Ajuste para centrar logo en móvil si se desea, o dejarlo a la derecha */
+            .logo {
+                margin-left: auto; /* Empuja el logo a la derecha, dejando la hamburguesa a la izquierda */
+                margin-right: 0;
+            }
         }
 
         /* Badge destacado */
@@ -305,6 +322,7 @@
             font-size: 0.8rem;
             font-weight: bold;
             margin-left: 0.5rem;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -312,20 +330,23 @@
     <!-- Navegación -->
     <nav class="navbar">
         <div class="nav-container">
+            <!-- 1. Hamburguesa primero (Izquierda) -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- 2. Logo (Derecha en móvil por el margin-left: auto) -->
             <a href="#" class="logo">Cripto <span>Faucets</span> Hunters</a>
             
+            <!-- 3. Menú de enlaces -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#tutoriales">Tutoriales</a></li>
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
             </ul>
-
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
@@ -333,7 +354,7 @@
     <main class="main-content">
         <!-- Hero Section -->
         <section class="hero" id="inicio">
-            <h1> Bienvenido a Cripto Faucets Hunters</h1>
+            <h1>Bienvenido a Cripto Faucets Hunters</h1>
             <p>Tu guía completa para descubrir, entender y aprovechar al máximo los faucets de criptomonedas. Aprende sin complicaciones y comienza tu camino en el mundo crypto.</p>
             <a href="#tutoriales" class="btn-primary">Comenzar Ahora</a>
         </section>
@@ -420,16 +441,29 @@
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">Aprende, gana y crece en el mundo crypto 🚀</p>
     </footer>
 
-    <!-- JavaScript para el menú hamburguesa -->
+    <!-- JavaScript mejorado -->
     <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
 
-        hamburger.addEventListener('click', () => {
+        // 1. Abrir/Cerrar al tocar la hamburguesa
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que el clic se propague al body
             navMenu.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic en un enlace
+        // 2. Cerrar al tocar fuera del menú
+        document.addEventListener('click', (e) => {
+            const isMenuOpen = navMenu.classList.contains('active');
+            const isClickInsideMenu = navMenu.contains(e.target);
+            const isClickHamburger = hamburger.contains(e.target);
+
+            if (isMenuOpen && !isClickInsideMenu && !isClickHamburger) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // 3. Cerrar al tocar un enlace dentro del menú
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
