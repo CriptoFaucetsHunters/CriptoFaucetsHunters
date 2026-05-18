@@ -48,16 +48,19 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between; /* Espacio entre elementos */
             align-items: center;
+            position: relative;
         }
 
         .logo {
-            font-size: 1.3rem; /* Un poco más pequeño para que quepa bien en móvil */
+            font-size: 1.3rem;
             font-weight: bold;
             color: var(--texto-principal);
             text-decoration: none;
             white-space: nowrap;
+            flex: 1;
+            text-align: center;
+            margin-left: 50px; /* Espacio para la hamburguesa */
         }
 
         .logo span {
@@ -69,6 +72,7 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            margin-left: auto;
         }
 
         .nav-menu a {
@@ -100,15 +104,17 @@
 
         /* Menú hamburguesa (móvil) */
         .hamburger {
-            display: none; /* Oculto en PC por defecto */
+            display: none;
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
-            order: 1; /* Fuerza al hamburger a ser el primero a la izquierda */
+            position: absolute;
+            left: 0;
+            z-index: 1001;
         }
 
         .hamburger span {
-            width: 25px;
+            width: 28px;
             height: 3px;
             background-color: var(--acento-cian);
             transition: all 0.3s ease;
@@ -195,11 +201,8 @@
             border-radius: 10px;
             border: 1px solid var(--borde-sutil);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        /* Efecto hover solo para dispositivos con mouse */
         @media (hover: hover) {
             .card:hover {
                 transform: translateY(-5px);
@@ -230,7 +233,6 @@
             color: var(--acento-cian);
             text-decoration: none;
             font-weight: 600;
-            position: relative;
         }
 
         .card-link::after {
@@ -257,31 +259,51 @@
             color: var(--acento-cian);
         }
 
+        /* Badge destacado */
+        .badge {
+            display: inline-block;
+            background-color: var(--acento-verde);
+            color: var(--fondo-principal);
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
-                z-index: 1001; /* Por encima del menú desplegable */
+            }
+
+            .logo {
+                margin-left: 60px; /* Más espacio para la hamburguesa */
+                text-align: left;
             }
 
             .nav-menu {
                 position: fixed;
-                left: -100%; /* Oculto a la izquierda */
                 top: 70px;
+                left: -100%;
+                width: 80%; /* Solo 80% del ancho, no 100% */
+                max-width: 300px;
+                height: auto;
+                max-height: calc(100vh - 70px);
                 flex-direction: column;
                 background-color: var(--fondo-secundario);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s ease-in-out;
-                padding: 2rem 0;
+                padding: 2rem 1rem;
                 gap: 1.5rem;
-                border-bottom: 2px solid var(--acento-cian);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-                height: calc(100vh - 70px); /* Altura completa menos la barra */
+                transition: 0.3s ease-in-out;
+                border-right: 2px solid var(--acento-cian);
+                box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+                overflow-y: auto;
+                margin-left: 0;
             }
 
             .nav-menu.active {
-                left: 0; /* Aparece */
+                left: 0;
             }
 
             .hero h1 {
@@ -304,25 +326,6 @@
                 padding: 1rem;
                 margin-top: 70px;
             }
-            
-            /* Ajuste para centrar logo en móvil si se desea, o dejarlo a la derecha */
-            .logo {
-                margin-left: auto; /* Empuja el logo a la derecha, dejando la hamburguesa a la izquierda */
-                margin-right: 0;
-            }
-        }
-
-        /* Badge destacado */
-        .badge {
-            display: inline-block;
-            background-color: var(--acento-verde);
-            color: var(--fondo-principal);
-            padding: 0.2rem 0.6rem;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 0.5rem;
-            vertical-align: middle;
         }
     </style>
 </head>
@@ -330,17 +333,17 @@
     <!-- Navegación -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- 1. Hamburguesa primero (Izquierda) -->
+            <!-- Hamburguesa a la IZQUIERDA -->
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             
-            <!-- 2. Logo (Derecha en móvil por el margin-left: auto) -->
+            <!-- Logo -->
             <a href="#" class="logo">Cripto <span>Faucets</span> Hunters</a>
             
-            <!-- 3. Menú de enlaces -->
+            <!-- Menú -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#tutoriales">Tutoriales</a></li>
@@ -441,18 +444,18 @@
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">Aprende, gana y crece en el mundo crypto 🚀</p>
     </footer>
 
-    <!-- JavaScript mejorado -->
+    <!-- JavaScript -->
     <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
 
-        // 1. Abrir/Cerrar al tocar la hamburguesa
+        // Abrir/cerrar menú con la hamburguesa
         hamburger.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita que el clic se propague al body
+            e.stopPropagation();
             navMenu.classList.toggle('active');
         });
 
-        // 2. Cerrar al tocar fuera del menú
+        // Cerrar al hacer clic fuera del menú
         document.addEventListener('click', (e) => {
             const isMenuOpen = navMenu.classList.contains('active');
             const isClickInsideMenu = navMenu.contains(e.target);
@@ -463,7 +466,7 @@
             }
         });
 
-        // 3. Cerrar al tocar un enlace dentro del menú
+        // Cerrar al tocar un enlace
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
