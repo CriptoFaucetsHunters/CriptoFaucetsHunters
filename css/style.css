@@ -118,7 +118,7 @@ body {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
     border-radius: 15px;
     margin-bottom: 3rem;
@@ -126,19 +126,34 @@ body {
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--texto-principal) 0%, var(--acento-cian) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    color: var(--texto-secundario);
-    max-width: 600px;
+.hero-intro {
+    max-width: 700px;
     margin: 0 auto 2rem auto;
+}
+
+.hero-intro p {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    text-align: left; /* Alineado a la izquierda para mejor lectura */
+}
+
+/* Botones */
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
 }
 
 .btn-primary {
@@ -158,6 +173,25 @@ body {
     color: var(--acento-cian);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--acento-cian);
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid var(--acento-cian);
+}
+
+.btn-secondary:hover {
+    background-color: var(--acento-cian);
+    color: var(--fondo-principal);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
 }
 
 /* Secciones */
@@ -260,7 +294,7 @@ body {
     
     .nav-menu.active { left: 0; }
     .hero h1 { font-size: 1.8rem; }
-    .hero p { font-size: 1rem; }
+    .hero-intro p { font-size: 1rem; }
     .section-title { font-size: 1.5rem; }
     .cards-grid { grid-template-columns: 1fr; }
     .main-content { padding: 1rem; margin-top: 70px; }
