@@ -214,7 +214,7 @@ body {
 
 .card {
     background-color: var(--fondo-tarjeta);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 10px;
     border: 1px solid var(--borde-sutil);
     transition: all 0.3s ease;
@@ -228,27 +228,37 @@ body {
     }
 }
 
-/* Estilos para Remix Icons */
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--acento-cian);
+/* NUEVO: Alineación Ícono + Título */
+.card-top {
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
 }
 
-.card-icon i {
-    font-size: inherit;
+.card-icon {
+    font-size: 1.6rem;
+    color: var(--acento-cian);
+    flex-shrink: 0;
     line-height: 1;
 }
 
-.card h3 { color: var(--acento-cian); margin-bottom: 0.5rem; font-size: 1.3rem; }
-.card p { color: var(--texto-secundario); font-size: 0.95rem; }
+.card h3 {
+    color: var(--acento-cian);
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.3;
+}
+
+.card p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
 
 .card-link {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     color: var(--acento-cian);
     text-decoration: none;
     font-weight: 600;
@@ -312,4 +322,9 @@ body {
     .section-title { font-size: 1.5rem; }
     .cards-grid { grid-template-columns: 1fr; }
     .main-content { padding: 1rem; margin-top: 70px; }
+    
+    /* Ajuste móvil para ícono+título */
+    .card-top { gap: 0.6rem; }
+    .card-icon { font-size: 1.4rem; }
+    .card h3 { font-size: 1.05rem; }
 }
