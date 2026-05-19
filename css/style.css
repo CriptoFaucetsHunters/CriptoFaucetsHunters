@@ -136,7 +136,8 @@ body {
 
 .hero-intro {
     max-width: 700px;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 1.5rem auto;
+    text-align: left;
 }
 
 .hero-intro p {
@@ -144,10 +145,40 @@ body {
     font-size: 1.1rem;
     margin-bottom: 1rem;
     line-height: 1.7;
-    text-align: left;
 }
 
-/* Botones */
+/* Nuevo: Enlace de texto "Leer más" */
+.read-more-link {
+    display: inline-block;
+    color: var(--acento-cian);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.read-more-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--acento-cian);
+    transition: width 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: var(--acento-verde);
+}
+
+.read-more-link:hover::after {
+    width: 100%;
+}
+
+/* Grupo de botones (ahora solo contiene el principal) */
 .btn-group {
     display: flex;
     gap: 1rem;
@@ -173,25 +204,6 @@ body {
     color: var(--acento-cian);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
-}
-
-.btn-secondary {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--acento-cian);
-    padding: 0.8rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid var(--acento-cian);
-}
-
-.btn-secondary:hover {
-    background-color: var(--acento-cian);
-    color: var(--fondo-principal);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
 }
 
 /* Secciones */
